@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
+Article.create!(title: '東京都 新型コロナ 新たに389人感染確認 300人超は今月9日以来', src: 'covid19_0814.png', url: 'https://www3.nhk.or.jp/news/html/20200814/amp/k10012566671000.html')
