@@ -51,4 +51,6 @@ production:
   <<: *default
   database: covid19_curation_production
   username: covid19_curation
-  password: <%= ENV['COVID19_CURATION_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+
