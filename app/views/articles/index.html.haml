@@ -1,0 +1,12 @@
+.header
+
+.wrapper
+  .sidebar
+  .main-contents
+    .top-topics
+    .article-fields
+      - @articles.each do |article|
+        = link_to article.url, class: "article" do
+          = image_tag "/images/#{article.src}", class: "image"
+          .title
+            = article.title.truncate(25)
