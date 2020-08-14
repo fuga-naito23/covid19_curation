@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  background-color: #222;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.wrapper {
+  padding-top: 60px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: #fff;
+}
+
+.main-contents {
+  width: calc(100vw - 200px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #efefef;
+}
+
+.top-topics {
+  width: 100%;
+  height: 300px;
+  background-color: #123;
+}
+
+.article-fields {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  .article{
+    height: 300px;
+    width: 30%;
+    background-color: #123;
+    margin-bottom: 30px;
+  }
+  &::after{
+    content:"";
+    display: block;
+    width:30%;
+  }
+}
+
+/* タブレット表示時 */
+@media (max-width: 1000px) {
+  .top-topics {
+    height: 250px;
+  }
+  .article-fields{
+    .article{
+      height: 100px;
+      width: 100%;
+      background-color: #123;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+/* スマホ表示時 */
+@media (max-width: 500px) {
+  .top-topics {
+    height: 200px;
+  }
+  .article-fields{
+    .article{
+      height: 100px;
+      width: 100%;
+      background-color: #123;
+      margin-bottom: 30px;
+    }
+  }
+  .sidebar {
+    display: none;
+  }
+  .main-contents {
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #efefef;
+  }
+}
