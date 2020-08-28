@@ -31,6 +31,40 @@ html, body {
   width: 200px;
   height: 100%;
   background-color: #fff;
+
+  #covid-cards{
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: auto;
+    .covid-card{
+      width: 100%;
+      height: 70px;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+
+      p{
+        font-size: 14px;
+        line-height: 11px;
+        color: #666;
+      }
+      &-main{
+        height: 100%;
+        display: flex;
+        padding-top: 10px;
+        justify-content: space-around;
+        // color: #333;
+        &__pref{
+          font-size: 20px;
+        }
+        &__data{
+          font-size: 24px;
+          &--total {
+            color: red;
+          }
+        }
+      }
+    }
+  }
 }
 
 .main-contents {
@@ -44,6 +78,20 @@ html, body {
   width: 100%;
   height: 300px;
   background-color: #123;
+  display: flex;
+  justify-content: space-between;
+  .heatmap-topics {
+    width: 360px;
+    padding: 0 30px;
+    border-left: 1px solid #666;
+    h3 {
+      line-height: 30px;
+      width: 100%;
+      height: 30px;
+      text-align: center;
+      color: #fff
+    }
+  }
 }
 
 .article-fields {
@@ -64,6 +112,7 @@ html, body {
     width:30%;
   }
 }
+
 
 
 /* タブレット表示時 */
