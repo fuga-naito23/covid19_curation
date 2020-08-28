@@ -80,6 +80,11 @@ html, body {
   background-color: #123;
   display: flex;
   justify-content: space-between;
+  #youtube-player {
+    margin: auto;
+    text-align: center;
+    width: 600px;
+  }
   .heatmap-topics {
     width: 360px;
     padding: 0 30px;

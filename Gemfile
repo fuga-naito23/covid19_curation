@@ -64,3 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails'
 gem 'pry-rails'
+gem 'google-api-client', require: 'google/apis/youtube_v3'

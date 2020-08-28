@@ -8,6 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+require("youtube_player")
+require("youtube_slick")
+
 require("japan-heatmap")
 require("sidebar-covid-card")
 
