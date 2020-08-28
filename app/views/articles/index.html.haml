@@ -2,11 +2,25 @@
 
 .wrapper
   .sidebar
+    #covid-cards
+      .covid-card
+        %p 本日の新規感染者数
+        .covid-card-main
+          .covid-card-main__pref
+            全体
+          .covid-card-main__data.covid-card-main__data--total
+
   .main-contents
     .top-topics
+      .hoge
+      .heatmap-topics
+        %h3
+          新規感染者(#{Date.today.strftime("%Y/%m/%d")})
+        #japan-map
     .article-fields
       - @articles.each do |article|
         = link_to article.url, class: "article" do
           = image_tag "/images/#{article.src}", class: "image"
           .title
             = article.title.truncate(25)
+
