@@ -4,6 +4,12 @@
   .sidebar
   .main-contents
     .top-topics
+      = link_to "探す", youtube_index_path
+      #youtube-player.slick
+        .container
+          #movie1
+        .container
+          #movie2
     .article-fields
       - @articles.each do |article|
         = link_to article.url, class: "article" do
