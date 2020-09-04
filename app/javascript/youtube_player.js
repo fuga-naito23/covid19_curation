@@ -1,49 +1,76 @@
 document.addEventListener("turbolinks:load", function(){
+  // 動画検索JS
+  // $(document).ready(function(){
 
-  var tag = document.createElement('script');
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+  
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  
+    ytPlayer = [];
+  
+    ytData = [
+      {
+        id: "",
+        area: "movie1"
+      },
+      {
+        id: "",
+        area: "movie2"
+      },
+      {
+        id: "",
+        area: "movie3"
+      },
+      {
+        id: "",
+        area: "movie4"
+      },
+      {
+        id: "",
+        area: "movie5"
+      }
+    ];
+    $.ajax ({
+      url: "/youtube",
+      type: "GET",
+      dataType: "json"
+    })
+    .done(function(movies){
+      console.log(movies)
 
-  tag.src = "https://www.youtube.com/iframe_api";
+      for(var i = 0; i < movies.length; i++) {
 
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        ytData[i].id = movies[i]
+      }
+      console.log(ytData)
 
-  ytPlayer = [];
+      window.onYouTubeIframeAPIReady = function() {
+        for(var i = 0; i < ytData.length; i++){
+          console.log(ytData[i]["area"])
+          console.log(ytData[i]["id"])
+          ytPlayer[i] = new YT.Player(ytData[i]["area"], {
+            height: '260',
+            width: '420',
+            videoId: ytData[i]["id"],
+            events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+            }
+          })
+        }
+      }
 
-  ytData = [
-    {
-      id: "ZRCdORJiUgU",
-      area: "movie1"
-    },
-    {
-      id: "6aFdEhEZQjE",
-      area: "movie2"
-    }
-  ];
+    })
+    .fail(function(){
+      alert("動画を取得できませんでした。");
+    })
+  // })
 
   document.player = null;
 
-  window.onYouTubeIframeAPIReady = function() {
-    for(var i = 0; i < ytData.length; i++){
-      ytPlayer[i] = new YT.Player(ytData[i]["area"], {
-        height: '260',
-        width: '420',
-        videoId: ytData[i]['id'],
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      })
-    }
-    // player = new YT.Player('youtube-player', {
-    //   height: '260',
-    //   width: '420',
-    //   videoId: '76TjJ6djE6Y',
-    //   events: {
-    //     'onReady': onPlayerReady,
-    //     'onStateChange': onPlayerStateChange
-    //   }
-    // });
-  }
+
 
   window.onPlayerReady = function(event) {
     event.target.playVideo();
@@ -60,4 +87,5 @@ document.addEventListener("turbolinks:load", function(){
   function stopVideo() {
     ytPlayer[i].stopVideo();
   }
+
 });
