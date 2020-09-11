@@ -1,0 +1,2 @@
+class CovidDatum < ApplicationRecord
+end
