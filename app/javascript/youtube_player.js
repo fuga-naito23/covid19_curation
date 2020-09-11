@@ -1,16 +1,8 @@
 document.addEventListener("turbolinks:load", function(){
-  // 動画検索JS
-  // $(document).ready(function(){
-
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-  
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
-    ytPlayer = [];
-  
-    ytData = [
+  //youtubeplayer埋め込み配列
+  ytPlayer = [];
+  //youtube埋め込み要素,videoId配列
+  ytData = [
       {
         id: "",
         area: "movie1"
@@ -32,24 +24,29 @@ document.addEventListener("turbolinks:load", function(){
         area: "movie5"
       }
     ];
+
     $.ajax ({
       url: "/youtube",
       type: "GET",
       dataType: "json"
     })
     .done(function(movies){
+      //検証のためconsole.logを残す
       console.log(movies)
-
       for(var i = 0; i < movies.length; i++) {
-
         ytData[i].id = movies[i]
       }
       console.log(ytData)
 
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+    
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
       window.onYouTubeIframeAPIReady = function() {
         for(var i = 0; i < ytData.length; i++){
-          console.log(ytData[i]["area"])
-          console.log(ytData[i]["id"])
+          console.log("OK")
           ytPlayer[i] = new YT.Player(ytData[i]["area"], {
             height: '260',
             width: '420',
@@ -61,16 +58,12 @@ document.addEventListener("turbolinks:load", function(){
           })
         }
       }
-
     })
     .fail(function(){
       alert("動画を取得できませんでした。");
     })
-  // })
 
   document.player = null;
-
-
 
   window.onPlayerReady = function(event) {
     event.target.playVideo();
