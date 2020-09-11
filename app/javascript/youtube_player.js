@@ -26,21 +26,21 @@ document.addEventListener("turbolinks:load", function(){
     ];
 
     $.ajax ({
-      url: "/youtube",
+      url: " /api/youtube",
       type: "GET",
       dataType: "json"
     })
-    .done(function(movies){
+    .done(function(videos){
       //検証のためconsole.logを残す
-      console.log(movies)
-      for(var i = 0; i < movies.length; i++) {
-        ytData[i].id = movies[i]
+      console.log(videos)
+      for(var i = 0; i < videos.length; i++) {
+        ytData[i].id = videos[i]
       }
       console.log(ytData)
 
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
-    
+
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -50,35 +50,14 @@ document.addEventListener("turbolinks:load", function(){
           ytPlayer[i] = new YT.Player(ytData[i]["area"], {
             height: '260',
             width: '420',
-            videoId: ytData[i]["id"],
-            events: {
-              'onReady': onPlayerReady,
-              'onStateChange': onPlayerStateChange
-            }
+            videoId: ytData[i]["id"]
           })
         }
       }
+
     })
     .fail(function(){
       alert("動画を取得できませんでした。");
     })
-
-  document.player = null;
-
-  window.onPlayerReady = function(event) {
-    event.target.playVideo();
-  }
-
-  window.done = false;
-  window.onPlayerStateChange = function(event) {
-    if (event.data == YT.PlayerState.PLAYING && !done) {
-      setTimeout(stopVideo, 6000);
-      done = true;
-    }
-  }
-
-  function stopVideo() {
-    ytPlayer[i].stopVideo();
-  }
 
 });
