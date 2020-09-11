@@ -1,8 +1,8 @@
-document.addEventListener("turbolinks:load", function(){
-  //youtubeplayer埋め込み配列
-  ytPlayer = [];
-  //youtube埋め込み要素,videoId配列
-  ytData = [
+  function searchVideos(){
+    //youtubeplayer埋め込み配列
+    ytPlayer = [];
+    //youtube埋め込み要素,videoId配列
+    ytData = [
       {
         id: "",
         area: "movie1"
@@ -46,7 +46,6 @@ document.addEventListener("turbolinks:load", function(){
 
       window.onYouTubeIframeAPIReady = function() {
         for(var i = 0; i < ytData.length; i++){
-          console.log("OK")
           ytPlayer[i] = new YT.Player(ytData[i]["area"], {
             height: '260',
             width: '420',
@@ -59,5 +58,13 @@ document.addEventListener("turbolinks:load", function(){
     .fail(function(){
       alert("動画を取得できませんでした。");
     })
+  }
 
-});
+  document.addEventListener("turbolinks:load", function(){
+    if ( true ) {
+      console.log("OK")
+      searchVideos()
+    } else {
+      console.log("NO")
+    }
+  });
